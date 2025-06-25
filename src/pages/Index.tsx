@@ -58,7 +58,7 @@ const Index = () => {
             <Button
               onClick={resetAll}
               variant="outline"
-              className="border-gray-600 hover:border-orange-500"
+              className="border-red-500/70 text-red-400 hover:bg-red-900/30 hover:text-red-300 hover:border-red-400 bg-transparent"
             >
               <RotateCcw className="w-4 h-4 mr-2" />
               Reset All
@@ -74,8 +74,8 @@ const Index = () => {
             onClick={() => setActiveTab('my-team')}
             variant={activeTab === 'my-team' ? 'default' : 'outline'}
             className={activeTab === 'my-team' 
-              ? "flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-900 font-bold border-0" 
-              : "flex items-center gap-2 border-amber-500/50 text-amber-300 hover:bg-amber-900/30 hover:text-amber-200 hover:border-amber-400 bg-transparent"
+              ? "flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold border-0" 
+              : "flex items-center gap-2 border-blue-500/50 text-blue-300 hover:bg-blue-900/30 hover:text-blue-200 hover:border-blue-400 bg-transparent"
             }
           >
             <Users className="w-4 h-4" />
@@ -85,8 +85,8 @@ const Index = () => {
             onClick={() => setActiveTab('enemy-team')}
             variant={activeTab === 'enemy-team' ? 'default' : 'outline'}
             className={activeTab === 'enemy-team' 
-              ? "flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold border-0" 
-              : "flex items-center gap-2 border-blue-500/50 text-blue-300 hover:bg-blue-900/30 hover:text-blue-200 hover:border-blue-400 bg-transparent"
+              ? "flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold border-0" 
+              : "flex items-center gap-2 border-red-500/50 text-red-300 hover:bg-red-900/30 hover:text-red-200 hover:border-red-400 bg-transparent"
             }
           >
             <Swords className="w-4 h-4" />
@@ -131,15 +131,15 @@ const Index = () => {
           <div className="mt-8 grid md:grid-cols-2 gap-6">
             {/* My Team Overview */}
             {myTeam.length > 0 && (
-              <div className="bg-green-900/20 backdrop-blur-sm rounded-xl p-6 border border-green-700">
-                <h3 className="text-lg font-bold text-green-400 mb-4">Your Team</h3>
+              <div className="bg-blue-900/20 backdrop-blur-sm rounded-xl p-6 border border-blue-700">
+                <h3 className="text-lg font-bold text-blue-400 mb-4">Your Team</h3>
                 <div className="flex gap-2">
                   {myTeam.map((hero) => (
                     <div key={hero.id} className="text-center">
                       <div className="w-16 h-16 rounded-lg overflow-hidden mb-1">
                         <img src={hero.image} alt={hero.name} className="w-full h-full object-cover" />
                       </div>
-                      <div className="text-xs text-green-300">{hero.name}</div>
+                      <div className="text-xs text-blue-300">{hero.name}</div>
                     </div>
                   ))}
                 </div>
