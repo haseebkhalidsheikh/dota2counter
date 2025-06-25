@@ -41,11 +41,11 @@ export const HeroSelector = ({
 
   return (
     <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
-      <h3 className="text-xl font-bold text-orange-400 mb-4">{title}</h3>
+      <h3 className="text-xl font-bold text-amber-400 mb-4">{title}</h3>
       
       {/* Selected Heroes Display */}
       <div className="mb-6">
-        <div className="flex gap-2 min-h-[5rem] p-3 bg-gray-800/50 rounded-lg border border-gray-600">
+        <div className="flex gap-2 min-h-[5rem] p-3 bg-gradient-to-r from-blue-900/30 to-amber-900/30 rounded-lg border border-amber-500/30">
           {selectedHeroes.map((hero) => (
             <div key={hero.id} className="relative">
               <HeroCard
@@ -61,13 +61,13 @@ export const HeroSelector = ({
           {Array.from({ length: maxSelections - selectedHeroes.length }).map((_, index) => (
             <div
               key={`empty-${index}`}
-              className="w-20 h-20 border-2 border-dashed border-gray-600 rounded-lg flex items-center justify-center text-gray-500"
+              className="w-20 h-20 border-2 border-dashed border-amber-500/50 rounded-lg flex items-center justify-center text-amber-400/70"
             >
               ?
             </div>
           ))}
         </div>
-        <p className="text-sm text-gray-400 mt-2">
+        <p className="text-sm text-amber-300/80 mt-2">
           {selectedHeroes.length}/{maxSelections} heroes selected
         </p>
       </div>
@@ -75,26 +75,29 @@ export const HeroSelector = ({
       {/* Search and Filters */}
       <div className="space-y-4 mb-6">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-400 w-4 h-4" />
           <Input
             placeholder="Search heroes..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 bg-gray-800 border-gray-600 text-white"
+            className="pl-10 bg-gray-800/70 border-amber-500/50 text-amber-100 placeholder:text-amber-400/60 focus:border-amber-400"
           />
         </div>
         
         <div className="flex gap-2 flex-wrap">
           <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-gray-400" />
-            <span className="text-sm text-gray-400">Attribute:</span>
+            <Filter className="w-4 h-4 text-amber-400" />
+            <span className="text-sm text-amber-300 font-medium">Attribute:</span>
             {attributes.map((attr) => (
               <Button
                 key={attr}
                 variant={attributeFilter === attr ? "default" : "outline"}
                 size="sm"
                 onClick={() => setAttributeFilter(attr)}
-                className="text-xs"
+                className={attributeFilter === attr 
+                  ? "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-900 font-semibold text-xs border-0" 
+                  : "border-blue-500/50 text-blue-300 hover:bg-blue-900/30 hover:text-blue-200 hover:border-blue-400 text-xs bg-transparent"
+                }
               >
                 {attr}
               </Button>
@@ -103,14 +106,17 @@ export const HeroSelector = ({
         </div>
         
         <div className="flex gap-2 flex-wrap">
-          <span className="text-sm text-gray-400">Role:</span>
+          <span className="text-sm text-amber-300 font-medium">Role:</span>
           {roles.map((role) => (
             <Button
               key={role}
               variant={roleFilter === role ? "default" : "outline"}
               size="sm"
               onClick={() => setRoleFilter(role)}
-              className="text-xs"
+              className={roleFilter === role 
+                ? "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold text-xs border-0" 
+                : "border-amber-500/50 text-amber-300 hover:bg-amber-900/30 hover:text-amber-200 hover:border-amber-400 text-xs bg-transparent"
+              }
             >
               {role}
             </Button>

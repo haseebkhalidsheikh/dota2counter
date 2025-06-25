@@ -73,7 +73,10 @@ const Index = () => {
           <Button
             onClick={() => setActiveTab('my-team')}
             variant={activeTab === 'my-team' ? 'default' : 'outline'}
-            className="flex items-center gap-2"
+            className={activeTab === 'my-team' 
+              ? "flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-900 font-bold border-0" 
+              : "flex items-center gap-2 border-amber-500/50 text-amber-300 hover:bg-amber-900/30 hover:text-amber-200 hover:border-amber-400 bg-transparent"
+            }
           >
             <Users className="w-4 h-4" />
             My Team ({myTeam.length}/5)
@@ -81,7 +84,10 @@ const Index = () => {
           <Button
             onClick={() => setActiveTab('enemy-team')}
             variant={activeTab === 'enemy-team' ? 'default' : 'outline'}
-            className="flex items-center gap-2"
+            className={activeTab === 'enemy-team' 
+              ? "flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold border-0" 
+              : "flex items-center gap-2 border-blue-500/50 text-blue-300 hover:bg-blue-900/30 hover:text-blue-200 hover:border-blue-400 bg-transparent"
+            }
           >
             <Swords className="w-4 h-4" />
             Enemy Team ({enemyTeam.length}/5)
